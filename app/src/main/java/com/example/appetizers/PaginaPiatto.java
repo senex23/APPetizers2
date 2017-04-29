@@ -9,7 +9,7 @@ public class PaginaPiatto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pagina_piatto);
+        //setContentView(R.layout.activity_pagina_piatto);
     }
 
     public void faiQualcosa(View v){
