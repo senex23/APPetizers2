@@ -112,7 +112,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="Invia"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:onClick="faiQualcosa"/>
 
     </LinearLayout>
 

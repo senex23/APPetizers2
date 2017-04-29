@@ -1,7 +1,8 @@
 package com.example.appetizers;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class PaginaPiatto extends AppCompatActivity {
 
@@ -9,5 +10,9 @@ public class PaginaPiatto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_piatto);
+    }
+
+    public void faiQualcosa(View v){
+
     }
 }
