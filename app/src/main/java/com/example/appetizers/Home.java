@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Home extends AppCompatActivity {
 
@@ -59,5 +60,13 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void dataAvanti (View view) {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, 1);
+    }
 
+    public void dataIndietro (View view) {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+    }
 }
