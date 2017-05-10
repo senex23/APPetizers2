@@ -21,16 +21,35 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1">
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/DataIndietro"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="dataIndietro"
+            app:srcCompat="@drawable/freccia_data_indietro" />
 
         <TextView
             android:id="@+id/date"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="0"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="opeyhgfsjjgkudtutdktd"
+            android:text="Mon 31/05"
             android:textAlignment="center"
             android:textSize="30dp" />
+        <ImageView
+            android:id="@+id/DataAvanti"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="dataAvanti"
+            app:srcCompat="@drawable/freccia_data_indietro" />
 
     </LinearLayout>
 
@@ -41,7 +60,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intestazione"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1">
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginTop="16dp">
 
         <TextView
             android:id="@+id/TitoloPrimi"
@@ -88,7 +108,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:src="@drawable/freccia_avanti" />
             </LinearLayout>
 
@@ -107,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:text="Primo 2"
                     android:textSize="20sp" />
 
@@ -116,7 +136,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:src="@drawable/freccia_avanti" />
             </LinearLayout>
 
@@ -187,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:text="Secondo 1"
                     android:textSize="20sp" />
 
@@ -196,7 +216,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:src="@drawable/freccia_avanti" />
             </LinearLayout>
 
@@ -215,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:text="Secondo 2"
                     android:textSize="20dp" />
 
@@ -224,7 +244,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:src="@drawable/freccia_avanti" />
             </LinearLayout>
 
@@ -266,7 +286,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:text="Contorno 1"
                     android:textSize="20dp" />
 
@@ -275,7 +295,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:src="@drawable/freccia_avanti" />
             </LinearLayout>
 
@@ -294,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:text="Contorno 2"
                     android:textSize="20dp" />
 
@@ -303,7 +323,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.02"
                     android:clickable="true"
-                    android:onClick=""
+                    android:onClick="vaiAlPiatto"
                     android:src="@drawable/freccia_avanti" />
             </LinearLayout>
 
