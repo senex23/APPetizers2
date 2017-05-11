@@ -8,19 +8,33 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+
+import static com.example.appetizers.R.id.date;
 
 public class Home extends AppCompatActivity {
+
+    public static Calendar oggi;
+    public Calendar datachevedo;
+    public TextView tw;
+    public SimpleDateFormat sdf;
+    public Date giorno;
+    public Date giornochevedo;
+    public Date today;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        TextView tw = (TextView) findViewById(R.id.date);
-        long date = System.currentTimeMillis();
+        oggi = Calendar.getInstance();
+        datachevedo = (Calendar) oggi.clone();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("E dd/MM");
-        String dateString = sdf.format(date);
+        tw = (TextView) findViewById(date);
+        giorno = datachevedo.getTime();
+
+        sdf = new SimpleDateFormat("E dd/MM");
+        String dateString = sdf.format(giorno);
         tw.setText(dateString);
 
         /*Piatto p = null;
@@ -61,12 +75,42 @@ public class Home extends AppCompatActivity {
     }
 
     public void dataAvanti (View view) {
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 1);
+        today = oggi.getTime();
+        giornochevedo = datachevedo.getTime();
+        long diff = giornochevedo.getTime() - today.getTime();
+        if (diff < (86400000*3)) { /*Questa differenza è in fottuti millisecondi, io ho bisogno dei cazzo di giorni!*/
+            datachevedo.add(Calendar.DATE, 1);
+            tw = (TextView) findViewById(date);
+            giorno = datachevedo.getTime();
+
+            sdf = new SimpleDateFormat("E dd/MM");
+            String dateString = sdf.format(giorno);
+            tw.setText(dateString);
+        }
     }
 
     public void dataIndietro (View view) {
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -1);
+        today = oggi.getTime();
+        giornochevedo = datachevedo.getTime();
+        long diff = today.getTime() - giornochevedo.getTime();
+        if (diff < (86400000*3)) {
+            datachevedo.add(Calendar.DATE, -1);
+            tw = (TextView) findViewById(date);
+            giorno = datachevedo.getTime();
+
+            sdf = new SimpleDateFormat("E dd/MM");
+            String dateString = sdf.format(giorno);
+            tw.setText(dateString);
+        }
+    }
+
+    public void tornaOggi (View view) {
+        datachevedo = (Calendar) oggi.clone();
+        tw = (TextView) findViewById(date);
+        giorno = datachevedo.getTime();
+
+        sdf = new SimpleDateFormat("E dd/MM");
+        String dateString = sdf.format(giorno);
+        tw.setText(dateString);
     }
 }
