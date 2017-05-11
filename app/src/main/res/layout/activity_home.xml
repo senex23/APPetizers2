@@ -32,7 +32,7 @@
             android:layout_weight="1"
             android:clickable="true"
             android:onClick="dataIndietro"
-            app:srcCompat="@drawable/freccia_data_indietro" />
+            app:srcCompat="@drawable/circled_back" />
 
         <TextView
             android:id="@+id/date"
@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:clickable="true"
             android:onClick="dataAvanti"
-            app:srcCompat="@drawable/freccia_data_avanti" />
+            app:srcCompat="@drawable/circled_forward" />
 
     </LinearLayout>
 
