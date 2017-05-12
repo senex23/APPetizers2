@@ -6,23 +6,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.ObjectInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 import static com.example.appetizers.R.id.date;
+import static com.example.appetizers.R.id.primo1;
+import static com.example.appetizers.R.id.primo2;
+import static com.example.appetizers.R.id.secondo2;
 
 public class Home extends AppCompatActivity {
 
-    public static Calendar oggi;
+    public Calendar oggi;
     public Calendar datachevedo;
-    public TextView tw;
+    public TextView textDate;
     public SimpleDateFormat sdf;
     public Date giorno;
     public Date giornochevedo;
     public Date today;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -30,43 +33,42 @@ public class Home extends AppCompatActivity {
         oggi = Calendar.getInstance();
         datachevedo = (Calendar) oggi.clone();
 
-        tw = (TextView) findViewById(date);
+        textDate = (TextView) findViewById(date);
         giorno = datachevedo.getTime();
 
         sdf = new SimpleDateFormat("E dd/MM");
         String dateString = sdf.format(giorno);
-        tw.setText(dateString);
+        textDate.setText(dateString);
 
-        /*Piatto p = null;
+        /*BufferedReader reader = null;//DEBUG LETTURA FILE DI TESTO
         try {
-            TextView tw1 = (TextView) findViewById(R.id.primo2);
-            tw1.setText("blocco1");
-            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath()+ File.separator+"pene.txt";
-            tw1.setText(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath()+ File.separator+"pene.txt");
-            FileInputStream fis = new FileInputStream(new File(path));
-            tw1.setText("blocco2");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            tw1.setText("blocco3");
+            reader = new BufferedReader(new InputStreamReader(getAssets().open("test.txt")));
+
+            // do reading, usually loop until end of file reading
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                TextView debug = (TextView) findViewById(primo2);
+                debug.setText("Test riuscito: "+mLine);
+            }
+        } catch (IOException e) {}*/
+
+        Piatto p;
+        ObjectInputStream ois;
+        try {
+            TextView debug = (TextView) findViewById(primo2);
+            debug.setText("Blocco 0");
+            ois = new ObjectInputStream(getAssets().open("dati.txt"));
+            debug.setText("Blocco 2");
             p = (Piatto)ois.readObject();
-            tw1.setText("blocco4");
+            debug.setText("Blocco 3");
             ois.close();
-            fis.close();
-            TextView tw = (TextView) findViewById(R.id.primo1);
-            tw.setText(p.nome);
-        }catch(Exception e){
-            TextView twe = (TextView) findViewById(R.id.contorno2);
-            twe.setText(e.getStackTrace().toString());
-        }
 
-
-        /*setContentView(R.layout.activity_home);
-        FirebaseDatabase database = null;
-        if(!FirebaseApp.getApps(this).isEmpty()) {
-            database = FirebaseDatabase.getInstance();
-            database.setPersistenceEnabled(true);
+            TextView textP1 = (TextView) findViewById(primo1);
+            textP1.setText(p.nome);
+        } catch (Exception e) {
+            TextView deb = (TextView) findViewById(secondo2);
+            deb.setText(e.getStackTrace()[0].toString());
         }
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Costa!Costa!Costa!");*/
     }
 
     public void vaiAlPiatto(View view){
@@ -80,12 +82,12 @@ public class Home extends AppCompatActivity {
         long diff = giornochevedo.getTime() - today.getTime();
         if (diff < (86400000*3)) { /*Questa differenza è in fottuti millisecondi, io ho bisogno dei cazzo di giorni!*/
             datachevedo.add(Calendar.DATE, 1);
-            tw = (TextView) findViewById(date);
+            //textDate = (TextView) findViewById(date);
             giorno = datachevedo.getTime();
 
             sdf = new SimpleDateFormat("E dd/MM");
             String dateString = sdf.format(giorno);
-            tw.setText(dateString);
+            textDate.setText(dateString);
         }
     }
 
@@ -95,22 +97,22 @@ public class Home extends AppCompatActivity {
         long diff = today.getTime() - giornochevedo.getTime();
         if (diff < (86400000*3)) {
             datachevedo.add(Calendar.DATE, -1);
-            tw = (TextView) findViewById(date);
+            //textDate = (TextView) findViewById(date);
             giorno = datachevedo.getTime();
 
             sdf = new SimpleDateFormat("E dd/MM");
             String dateString = sdf.format(giorno);
-            tw.setText(dateString);
+            textDate.setText(dateString);
         }
     }
 
     public void tornaOggi (View view) {
         datachevedo = (Calendar) oggi.clone();
-        tw = (TextView) findViewById(date);
+        //textDate = (TextView) findViewById(date);
         giorno = datachevedo.getTime();
 
         sdf = new SimpleDateFormat("E dd/MM");
         String dateString = sdf.format(giorno);
-        tw.setText(dateString);
+        textDate.setText(dateString);
     }
 }
