@@ -1,13 +1,15 @@
 package com.example.appetizers;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.ObjectInputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,7 +17,6 @@ import java.util.Date;
 import static com.example.appetizers.R.id.date;
 import static com.example.appetizers.R.id.primo1;
 import static com.example.appetizers.R.id.primo2;
-import static com.example.appetizers.R.id.secondo2;
 
 public class Home extends AppCompatActivity {
 
@@ -41,35 +42,20 @@ public class Home extends AppCompatActivity {
         String dateString = sdf.format(giorno);
         textDate.setText(dateString);
 
-        /*BufferedReader reader = null;//DEBUG LETTURA FILE DI TESTO
-        try {
-            reader = new BufferedReader(new InputStreamReader(getAssets().open("test.txt")));
-
-            // do reading, usually loop until end of file reading
-            String mLine;
-            while ((mLine = reader.readLine()) != null) {
-                TextView debug = (TextView) findViewById(primo2);
-                debug.setText("Test riuscito: "+mLine);
-            }
-        } catch (IOException e) {}*/
-
-        Piatto p;
+        BufferedReader reader = null;
         try {
             TextView debug = (TextView) findViewById(primo2);
-            debug.setText("Blocco 0");
-            InputStream is = getAssets().open("dati.txt");
-            ObjectInputStream ois = new ObjectInputStream(is);
-            debug.setText("Blocco 2");
-            p = (Piatto)ois.readObject();
-            debug.setText("Blocco 3");
-            ois.close();
-
-            TextView textP1 = (TextView) findViewById(primo1);
-            textP1.setText(p.nome);
-        } catch (Exception e) {
-            TextView deb = (TextView) findViewById(secondo2);
-            deb.setText(e.getStackTrace()[0].toString());
-        }
+            AssetManager am = getAssets();
+            InputStream is = am.open("mydati2.txt");
+            InputStreamReader isr = new InputStreamReader(is);
+            reader = new BufferedReader(isr);
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                Piatto p = new Piatto(mLine);
+                TextView tw = (TextView) findViewById(primo1);
+                tw.setText(p.nome);
+            }
+        } catch (Exception e) {}
     }
 
     public void vaiAlPiatto(View view){

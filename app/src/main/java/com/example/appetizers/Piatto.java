@@ -1,15 +1,33 @@
 package com.example.appetizers;
 
-import java.io.Serializable;
-
-public class Piatto implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Piatto{
     String nome;
     String[] ingredienti;
     String descrizione;
 
-    public Piatto(String nome,String descrizione){
+    public Piatto(String nome,String descrizione,String[] ingr){
+        ingredienti = ingr;
         this.nome = nome;
         this.descrizione = descrizione;
+    }
+
+    public Piatto(String s){
+        String[] xd = s.split("#");
+        nome = xd[0];
+        descrizione = xd[1];
+        ingredienti = new String[xd.length-2];
+        for(int i=2;i<xd.length;i++){
+            ingredienti[i-2]=xd[i];
+        }
+    }
+
+    public String toFile(){
+        String s = "";
+        s+=nome+"#";
+        s+=descrizione+"#";
+        for(String box:ingredienti){
+            s+=box+"#";
+        }
+        return s+"\n";
     }
 }
