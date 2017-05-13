@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="#d32f2f"
+    android:background="#7ce53b"
     android:orientation="vertical"
     android:theme="@style/Theme.AppCompat.NoActionBar"
     tools:context="com.example.appetizers.Home">
@@ -16,14 +16,14 @@
         android:id="@+id/intestazione"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="#44b200"
         android:orientation="horizontal"
-        android:background="#9a0007"
+        android:padding="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintRight_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:padding="8dp">
+        tools:layout_constraintRight_creator="1">
 
         <ImageView
             android:id="@+id/DataIndietro"
@@ -37,12 +37,14 @@
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
-            android:layout_weight="0"
             android:layout_height="35dp"
             android:layout_gravity="center"
+            android:layout_weight="0"
             android:text="Mon 31/05"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="30dp" />
+
         <ImageView
             android:id="@+id/DataAvanti"
             android:layout_width="0dp"
@@ -57,12 +59,12 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intestazione"
-        tools:layout_constraintRight_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginTop="16dp">
+        tools:layout_constraintRight_creator="1">
 
         <TextView
             android:id="@+id/TitoloPrimi"
@@ -73,6 +75,7 @@
             android:layout_marginLeft="8dp"
             android:text="Primi piatti"
             android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -89,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -102,6 +105,7 @@
                     android:clickable="true"
                     android:onClick="vaiAlPiatto"
                     android:text="Primo 1"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -117,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -130,6 +134,7 @@
                     android:clickable="true"
                     android:onClick="vaiAlPiatto"
                     android:text="Primo 2"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -145,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -158,6 +163,7 @@
                     android:clickable="true"
                     android:onClick=""
                     android:text="Zuppa"
+                    android:textColor="#000000"
                     android:textSize="20dp" />
 
                 <ImageView
@@ -181,6 +187,7 @@
             android:layout_marginRight="8dp"
             android:text="Secondi piatti"
             android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -197,7 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -210,6 +217,7 @@
                     android:clickable="true"
                     android:onClick="vaiAlPiatto"
                     android:text="Secondo 1"
+                    android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -225,7 +233,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -238,6 +246,7 @@
                     android:clickable="true"
                     android:onClick="vaiAlPiatto"
                     android:text="Secondo 2"
+                    android:textColor="#000000"
                     android:textSize="20dp" />
 
                 <ImageView
@@ -260,6 +269,7 @@
             android:layout_below="@+id/SecondiPiatti"
             android:text="Contorni"
             android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -276,7 +286,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -289,6 +299,7 @@
                     android:clickable="true"
                     android:onClick="vaiAlPiatto"
                     android:text="Contorno 1"
+                    android:textColor="#000000"
                     android:textSize="20dp" />
 
                 <ImageView
@@ -304,7 +315,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:background="#ff6659"
+                android:background="#b2ff70"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
@@ -317,6 +328,7 @@
                     android:clickable="true"
                     android:onClick="vaiAlPiatto"
                     android:text="Contorno 2"
+                    android:textColor="#000000"
                     android:textSize="20dp" />
 
                 <ImageView
@@ -336,13 +348,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#9a0007"
+        android:background="#44b200"
+        android:clickable="true"
         android:gravity="left"
+        android:onClick="tornaOggi"
         android:paddingBottom="8dp"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"
-        android:clickable="true"
-        android:onClick="tornaOggi"
         android:text="Oggi"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -350,9 +362,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1" />
-
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
 
 </android.support.constraint.ConstraintLayout>
