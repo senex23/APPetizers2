@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -53,11 +54,11 @@ public class Home extends AppCompatActivity {
         } catch (IOException e) {}*/
 
         Piatto p;
-        ObjectInputStream ois;
         try {
             TextView debug = (TextView) findViewById(primo2);
             debug.setText("Blocco 0");
-            ois = new ObjectInputStream(getAssets().open("dati.txt"));
+            InputStream is = getAssets().open("dati.txt");
+            ObjectInputStream ois = new ObjectInputStream(is);
             debug.setText("Blocco 2");
             p = (Piatto)ois.readObject();
             debug.setText("Blocco 3");
@@ -72,7 +73,9 @@ public class Home extends AppCompatActivity {
     }
 
     public void vaiAlPiatto(View view){
+        String s ="penepenepene";
         Intent intent = new Intent(Home.this, PaginaPiatto.class);
+        intent.putExtra("s", s);
         startActivity(intent);
     }
 
